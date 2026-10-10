@@ -1,0 +1,21 @@
+/target/
+/Cargo.lock
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Persistent local game data
+/save/
+*.queue
+*.queue.bin
+
+# Editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini

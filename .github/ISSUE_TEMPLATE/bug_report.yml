@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a reproducible bug in gamejolt-rs.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include private keys, user tokens, signed URLs, or real player data.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the unexpected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Include a minimal example with credentials removed.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Crate version and Rust toolchain
+      placeholder: gamejolt-rs 0.1.0; rustc stable
+    validations:
+      required: true
+  - type: textarea
+    id: features
+    attributes:
+      label: Enabled features and target
+      placeholder: Default features; x86_64-pc-windows-msvc
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Redacted error output
+      description: Remove secrets and personal information before submitting.
