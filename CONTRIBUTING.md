@@ -51,10 +51,10 @@ shutdown and observable error behavior. Destructors cannot await network
 cleanup. Retry policy must account for whether an operation can safely be
 repeated.
 
-Keep feature dependencies optional where possible. Do not claim server-side
-batching, automatic queue interception, push events, full WASM support, or
-generated derive functionality unless the implementation and tests provide
-those guarantees.
+Keep feature dependencies optional where possible. Do not claim server-side batching, automatic queue interception, push events,
+full WASM support, or generated derive functionality unless the implementation
+and tests provide those guarantees. Optional crate dependencies must have
+published registry versions before the main crate can be published.
 
 ## Credentials and security
 

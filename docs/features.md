@@ -42,7 +42,7 @@ It is not a promise that every field from the Game Jolt service is modeled.
 | `session-manager` | Background Tokio open/ping/close task | Shutdown close depends on the Tokio runtime remaining alive. |
 | `bevy` | Client resource plugin | No event types or asynchronous ECS systems yet. |
 | `wasm` | Reserved feature flag | WASM support is not verified or guaranteed. |
-| `macros` | Marker-trait derives | Does not generate datastore or score operations. |
+| Derive macros | Not included in this release | The local prototype crate is not published and is not a root crate dependency. |
 
 These limitations are documented so applications can make explicit choices
 instead of inferring behavior from feature names.
@@ -55,7 +55,6 @@ instead of inferring behavior from feature names.
 - `offline-queue` enables bincode persistence.
 - `reactive` enables async-stream and Tokio stream support plus scores.
 - `session-manager` enables reactive support and sessions.
-- `macros` enables the local derive crate.
 - `bevy` enables Bevy plus session manager, queue, reactive, and limiter code.
 - `full` enables the endpoint and advanced features declared in the manifest.
 
@@ -84,8 +83,9 @@ safe to retry and how duplicate submissions are handled.
 Before describing WASM support, compile for a supported `wasm32` target, run
 browser tests, and ensure no server-only transport is selected.
 
-Before describing the derive macros as code generators, test their generated
-API in a downstream crate and document trait bounds and field behavior.
+Before restoring derive macros, publish the derive crate first, add its
+registry version requirement to the root manifest, and test expansion from a
+downstream crate.
 
 Before adding Bevy events, define how async task results are delivered into
 the ECS world and how systems are cancelled during app shutdown.
@@ -111,6 +111,7 @@ Check that the documentation does not imply hidden background retries.
 
 Check that a queue flush reports failures and retains pending records.
 
-Check that generated macro output is tested outside of the library crate.
+Check that generated macro output is tested outside of the library crate
+before restoring a derive feature.
 
 Check WASM support on an installed target before advertising it as supported.

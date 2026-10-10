@@ -5,7 +5,7 @@ edition = "2024"
 description = "The most advanced Game Jolt Game API v1_2 crate in existence"
 repository = "https://github.com/Seigh-sword/gamejolt-rs"
 license = "Apache-2.0"
-keywords = ["gamejolt", "api", "game", "leaderboard", "achievements", "datastore"]
+keywords = ["gamejolt", "api", "leaderboard", "achievements", "datastore"]
 categories = ["api-bindings", "game-development", "network-programming"]
 
 [lib]
@@ -32,7 +32,6 @@ futures = "0.3"
 serde_bytes = "0.11"
 url = "2"
 bevy = { version = "0.15", optional = true, default-features = false }
-gamejolt-rs-derive = { path = "derive", optional = true }
 
 [dev-dependencies]
 wiremock = "0.6"
@@ -42,7 +41,7 @@ tokio-test = "0.4"
 default = ["scores", "users", "sessions", "sha1"]
 full = [
     "scores", "users", "sessions", "trophies", "datastore", 
-    "friends", "time", "batch", "offline-queue", "reactive", "macros",
+    "friends", "time", "batch", "offline-queue", "reactive",
     "rate-limiter", "session-manager", "md5", "sha1"
 ]
 scores = []
@@ -55,7 +54,6 @@ time = []
 batch = []
 offline-queue = ["dep:bincode"]
 reactive = ["dep:async-stream", "dep:tokio-stream", "scores"]
-macros = ["dep:gamejolt-rs-derive"]
 bevy = ["dep:bevy", "session-manager", "offline-queue", "reactive", "rate-limiter"]
 wasm = []
 md5 = ["dep:md-5"]

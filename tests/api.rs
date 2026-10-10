@@ -113,32 +113,3 @@ async fn debug_output_redacts_private_key() {
     let client = builder.build().unwrap();
     assert!(!format!("{client:?}").contains(key));
 }
-
-#[cfg(all(feature = "macros", feature = "datastore"))]
-#[derive(serde::Serialize, serde::Deserialize, gamejolt_rs::GameJoltDatastore)]
-struct DerivedSave {
-    stage: u32,
-}
-
-#[cfg(all(feature = "macros", feature = "datastore"))]
-#[test]
-fn datastore_derive_expands_in_downstream_code() {
-    assert_eq!(
-        <DerivedSave as gamejolt_rs::datastore::GameJoltDatastore>::datastore_type_name(),
-        "DerivedSave"
-    );
-    let _ = DerivedSave { stage: 1 }.stage;
-}
-
-#[cfg(all(feature = "macros", feature = "scores"))]
-#[derive(gamejolt_rs::GameJoltScore)]
-struct DerivedScore;
-
-#[cfg(all(feature = "macros", feature = "scores"))]
-#[test]
-fn score_derive_expands_in_downstream_code() {
-    assert_eq!(
-        <DerivedScore as gamejolt_rs::scores::GameJoltScore>::score_type_name(),
-        "DerivedScore"
-    );
-}

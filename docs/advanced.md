@@ -181,19 +181,14 @@ explicit asynchronous integration strategy for network calls.
 
 ## Derive macros
 
-Enable `macros` to use `GameJoltDatastore` and `GameJoltScore` derives:
+Derive macros are not included in this release. A local prototype exists as a
+separate crate, but it is not published to crates.io and is not a dependency of
+`gamejolt-rs`. It therefore cannot be used through this crate's public API.
 
-```rust,ignore
-#[derive(gamejolt_rs::GameJoltDatastore)]
-struct PlayerSave {
-    stage: u32,
-}
-```
-
-The current derives implement marker traits exposing the type name. They do
-not generate save/load methods, field mappings, or score serialization.
-Implement serialization and endpoint calls explicitly until those derive
-capabilities are expanded.
+For typed persistence, derive serde's `Serialize` and `Deserialize` traits and
+call the datastore methods directly. The derive feature can be restored after
+the proc-macro crate is published independently and downstream expansion tests
+pass.
 
 ## WASM target
 

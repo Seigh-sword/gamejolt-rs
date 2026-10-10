@@ -25,9 +25,6 @@ pub use error::{GameJoltError, Result};
 pub use signing::{HashAlgorithm, Signer};
 pub use types::*;
 
-#[cfg(feature = "macros")]
-pub use gamejolt_rs_derive::{GameJoltDatastore, GameJoltScore};
-
 #[cfg(feature = "batch")]
 pub mod batch;
 #[cfg(feature = "bevy")]
