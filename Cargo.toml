@@ -81,5 +81,5 @@ required-features = ["sessions", "session-manager"]
 wasm-bindgen = { version = "0.2", optional = true }
 web-sys = { version = "0.3", features = ["Window", "Navigator"], optional = true }
 gloo-net = { version = "0.7", optional = true }
-gloo-timers = { version = "0.2", optional = true }
+gloo-timers = { version = "0.4", optional = true }
 js-sys = { version = "0.3", optional = true }
